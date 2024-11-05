@@ -18,34 +18,70 @@ Une fois le PID récupéré, utilisez le code ci-dessous pour mettre en pause le
 Le PID est évidemment à inclure à l'endroit indiqué par un commentaire.
 
 ```bash
-from ptrace.debugger import PtraceDebugger
-import time
 
-# PID du processus Alex4 (remplace par le bon PID)
-alex4_pid = 4294  # Remplace par le PID du processus Alex4
+import os
+import time
+from ptrace.debugger import PtraceDebugger
+
+# Remplace par le PID du processus que tu veux attacher
+alex4_pid = 3183  # Assure-toi que ce PID est valide et actif
+
+def is_process_running(pid):
+    """Vérifie si un processus est en cours d'exécution."""
+    try:
+        os.kill(pid, 0)
+        return True
+    except OSError:
+        return False
+
+def get_stack_line(pid):
+    """Récupère la ligne correspondant à la pile du processus."""
+    with open(f'/proc/{pid}/maps', 'r') as f:
+        for line in f:
+            if 'stack' in line:
+                return line.strip()  # Retourne la ligne complète
+    return None
 
 def pause_process(pid):
-    """Attache au processus avec PTRACE et le met en pause."""
+    """Attache au processus et le met en pause."""
     debugger = PtraceDebugger()
-    process = debugger.addProcess(pid, False)  # Attacher au processus sans suivre les fils
-    process.syscall()  # Suspendre l'exécution à l'appel système
+    process = debugger.addProcess(pid, False)
+    process.syscall()
     print(f"Processus {pid} mis en pause.")
     return debugger, process
 
 def resume_process(debugger, process):
     """Reprend l'exécution du processus."""
-    process.cont()  # Continuer l'exécution du processus
-    debugger.quit()  # Détacher et quitter le débogueur
-    print(f"Processus {process.pid} repris.")
+    try:
+        process.cont()
+        debugger.quit()
+        print(f"Processus {process.pid} repris.")
+    except Exception as e:
+        print(f"Erreur lors de la reprise du processus : {e}")
 
-# Mettre en pause le processus Alex4
-debugger, process = pause_process(alex4_pid)
+# Vérifie si le processus est en cours d'exécution
+if not is_process_running(alex4_pid):
+    print(f"Le processus {alex4_pid} n'est pas en cours d'exécution.")
+else:
+    # Mettre en pause le processus
+    debugger, process = pause_process(alex4_pid)
 
-# Attendre 5 secondes
-time.sleep(5)
+    # Récupérer et afficher la ligne de la pile
+    stack_line = get_stack_line(alex4_pid)
+    if stack_line:
+        print("Ligne de la pile:")
+        print(stack_line)
+    else:
+        print("Aucune ligne de pile trouvée.")
 
-# Reprendre le processus Alex4
-resume_process(debugger, process)
+    # Attendre 5 secondes
+    time.sleep(5)
+
+    # Vérifie à nouveau si le processus est toujours en cours d'exécution avant de le reprendre
+    if is_process_running(alex4_pid):
+        resume_process(debugger, process)
+    else:
+        print(f"Le processus {alex4_pid} n'est plus en cours d'exécution.")
 
 ```
 
