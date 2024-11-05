@@ -43,7 +43,7 @@ else:
     print(f"Le processus {alex4_pid} n'est plus en cours d'exécution.")
 ```
 
-#Bibliothèque Ptrace 
+## Bibliothèque Ptrace 
 
 **Ptrace** est une bibliothèque Unix qui il permet à un programme d'inspecter et de contrôler l'exécution d'un autre processus. Elle est souvent utilisée dans le développement et le débogage pour :
 
