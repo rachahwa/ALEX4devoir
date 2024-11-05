@@ -220,9 +220,14 @@ sudo apt install scanmem
 sudo apt install gdb
 ```
 
-Scanmem permet de scanner la mémoire d'alex4. Une fois scanmem lancé il faut préciser le pid de notre jeu.
-Ensuite on lui indique score qu'on a sur le jeu et on réitère jusqu'a qu'il nous reste plus qu'une ligne.
+Scanmem permet de scanner la mémoire d'alex4. Une fois scanmem lancé il faut préciser le pid de notre jeu.  
+![Capture d'écran 2024-11-05 114559](https://github.com/user-attachments/assets/0f8a22e4-246a-4416-b530-4e735f6bc451)
 
+Ensuite on lui indique score qu'on a sur le jeu et on réitère jusqu'a qu'il nous reste plus qu'une ligne.  
+![Capture d'écran 2024-11-05 114607](https://github.com/user-attachments/assets/0d8ce73e-fbd6-49f2-8682-51c372a1c5f3)
+![Capture d'écran 2024-11-05 114619](https://github.com/user-attachments/assets/4baee73e-12da-4d13-bc32-947b921f19b7)
 
 ## Etape 8 : Insertion
+Une fois qu'on a réussi à retrouver notre addresse nous pouvons utiliser GDB qui nous permettra de modifier la valeur dans l'adresse mémoire. Dans notre cas nous pouvons donc changer le score grace a l'addresse retrouver.
+[Modifier valeur adresse mémoire](inserer.py)
 
