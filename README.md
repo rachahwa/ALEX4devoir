@@ -208,7 +208,6 @@ else:
 L'étape de comparaison a été un point sur lequel nous avons passé beaucoup de temps, mais qui s'est avéré inutile à la fin, car nous avons décidé de changer notre démarche.
 
 L'objectif est de comparer deux fichiers crées précédemment (de stack) en supprimant toutes les lignes similaires. Lorsqu'une adresse n'est présente que dans un fichier, elle est égalemment supprimée. Cette technique est fastidieuse car, il faut réitérer l'opération une multitude de fois pour obtenir la ligne voulue sachant que le fichier peut-être assez imposant.
-
-
+(fichier python pour comparer les fichiers)[comparaison.py]
 
 
