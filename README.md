@@ -52,3 +52,44 @@ else:
 3. **Débogage** : Elle aide à détecter et corriger des erreurs en permettant l'inspection de la mémoire et des registres.
 
 Ainsi vous pourrez remarquer que c'est la bibliothèque nous avons choisie d'utiliser ici.
+
+## Etape 3 : Récupération de la mémoire 
+
+```bash
+# Récupérer et afficher les adresses de la pile
+    stack_addresses = get_stack_addresses(alex4_pid)
+    print("Adresses de la pile:")
+    for addr in stack_addresses:
+        print(addr)
+```
+
+## Etape 4 : Récupération de la ligne stack
+
+```bash
+stack_line = get_stack_line(alex4_pid)
+    if stack_line:
+        print("Ligne de la pile:")
+        print(stack_line)
+    else:
+        print("Aucune ligne de pile trouvée.")
+```
+
+## Etape 5 : Affichage de l'intervalle 
+```bash
+def display_stack_memory(debugger, process, stack_start, stack_end, step=8):
+    """Affiche les valeurs en mémoire depuis le début de la pile."""
+    current_address = stack_start
+    while current_address < stack_end:
+        try:
+            # Lire un bloc de mémoire à l'adresse courante
+            data = read_memory(process, current_address, step)
+            # Interpréter ces données comme un nombre (pour les adresses 64-bits)
+            value = struct.unpack('<Q', data)[0]  # <Q pour un entier non signé 64-bits
+            print(f"Adresse: {hex(current_address)} | Valeur: {hex(value)}")
+            current_address += step
+        except Exception as e:
+            print(f"Erreur lors de la lecture de la mémoire à {hex(current_address)}: {e}")
+            break
+```
+## Étape 6 :
+
