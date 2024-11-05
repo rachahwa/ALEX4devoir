@@ -210,7 +210,19 @@ L'étape de comparaison a été un point sur lequel nous avons passé beaucoup d
 L'objectif est de comparer deux fichiers crées précédemment (de stack) en supprimant toutes les lignes similaires. Lorsqu'une adresse n'est présente que dans un fichier, elle est égalemment supprimée. Cette technique est fastidieuse car, il faut réitérer l'opération une multitude de fois pour obtenir la ligne voulue sachant que le fichier peut-être assez imposant.  
 [fichier python pour comparer les fichiers](comparaison.py)
 
-## Etape 7 :
+## Etape 7 : Scanmem
+
+Finalement la méthode d'avant n'était pas concluante.
+Nous avons donc installé scanmem et gdb.  
+
+```bash
+sudo apt install scanmem
+sudo apt install gdb
+```
+
+Scanmem permet de scanner la mémoire d'alex4. Une fois scanmem lancé il faut préciser le pid de notre jeu.
+Ensuite on lui indique score qu'on a sur le jeu et on réitère jusqu'a qu'il nous reste plus qu'une ligne.
+
 
 ## Etape 8 : Insertion
 
