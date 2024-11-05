@@ -228,5 +228,5 @@ Ensuite on lui indique score qu'on a sur le jeu et on réitère jusqu'a qu'il no
 
 ## Etape 8 : Insertion
 Une fois qu'on a réussi à retrouver notre addresse nous pouvons utiliser GDB qui nous permettra de modifier la valeur dans l'adresse mémoire. Dans notre cas nous pouvons donc changer le score grace a l'addresse retrouver.
-[Modifier valeur adresse mémoire](inserer.py)
+[code pou modifier valeur adresse mémoire](inserer.py)
 
