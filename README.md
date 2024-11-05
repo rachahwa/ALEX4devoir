@@ -3,6 +3,7 @@
 
 *Alex4 est un jeu de plateforme rétro au style pixelisé, dans lequel on incarne un crocodile explorant des niveaux remplis d'obstacles.*
 
+Dans ce devoir, vous pourrez retrouver les différentes étapes de notre réflexion. En revanche, elles pourront ne pas toute se retrouver dans le code finale car nous aurons jugé qu'elles ne sont pas forcément nécéssaire. 
 ## Étape 1 : Trouver le PID du jeu
 
 Utilisez la commande suivante pour obtenir le PID du jeu `alex4` :
