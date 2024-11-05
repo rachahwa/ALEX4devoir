@@ -203,4 +203,7 @@ else:
         print(f"Le processus {alex4_pid} n'est plus en cours d'exécution.")
 ```
 
+## Etape 6 : Comparaison
+
+
 
