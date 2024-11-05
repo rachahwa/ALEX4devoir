@@ -1,6 +1,8 @@
 # ALEX4devoir
 
 
+*Alex4 est un jeu de plateforme rétro au style pixelisé, dans lequel on incarne un crocodile explorant des niveaux remplis d'obstacles.*
+
 ## Étape 1 : Trouver le PID du jeu
 
 Utilisez la commande suivante pour obtenir le PID du jeu `alex4` :
@@ -40,3 +42,13 @@ if is_process_running(alex4_pid):
 else:
     print(f"Le processus {alex4_pid} n'est plus en cours d'exécution.")
 ```
+
+#Bibliothèque Ptrace 
+
+**Ptrace** est une bibliothèque Unix qui il permet à un programme d'inspecter et de contrôler l'exécution d'un autre processus. Elle est souvent utilisée dans le développement et le débogage pour :
+
+1. **Suivre l’exécution** : Elle permet de surveiller chaque étape d’un processus, comme les appels système effectués.
+2. **Modifier le processus** : On peut altérer l'état d'un processus, en changeant ses variables ou son flux d'exécution.
+3. **Débogage** : Elle aide à détecter et corriger des erreurs en permettant l'inspection de la mémoire et des registres.
+
+Ainsi vous pourrez remarquer que c'est la bibliothèque nous avons choisie d'utiliser ici.
