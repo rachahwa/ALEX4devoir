@@ -1,4 +1,4 @@
-# ALEX4devoir
+# ALEX4devoir Wassila et Léa
 
 
 *Alex4 est un jeu de plateforme rétro au style pixelisé, dans lequel on incarne un crocodile explorant des niveaux remplis d'obstacles.*
